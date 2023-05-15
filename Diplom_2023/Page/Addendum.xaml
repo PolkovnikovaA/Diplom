@@ -1,0 +1,180 @@
+﻿<Page x:Class="Diplom_2023.Addendum"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom_2023"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1400"
+      Title="Addendum">
+
+    <Grid Height="800" Width="1400">
+        <ScrollViewer Width="1140"
+                      Margin="60,50,0,0"
+                      Background="{x:Null}"
+                      BorderBrush="{x:Null}"
+                      VerticalScrollBarVisibility="Hidden">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" 
+                        Height="300">
+                    <Border Background="#C5E9FF"
+                            CornerRadius="25" 
+                            Height="248" Width="276"
+                            Cursor="Hand"
+                            Margin="80,40,0,0"
+                            MouseLeftButtonDown="Addendum_Add_Type_1">
+                        <TextBlock Text="Список публикаций&#xA;в рецензируемых&#xA;периодических&#xA;журналах"
+                                   FontSize="20"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="#002359" 
+                                   Cursor="Hand" 
+                                   TextAlignment="Center"
+                                   MouseLeftButtonDown="Addendum_Add_Type_1"/>
+                        <Border.ToolTip>
+                            Перейти
+                        </Border.ToolTip>
+                    </Border>
+                    <Border Background="#C5E9FF"
+                            CornerRadius="25"
+                            Height="249" Width="276"
+                            Cursor="Hand"
+                            Margin="80,40,0,0"
+                            MouseLeftButtonDown="Addendum_Add_Type_2">
+                        <TextBlock Text="Вышедшие&#xA;монографии,&#xA;изданные в научных&#xA;издательствах и&#xA;имеющие шифр ISBN,&#xA;и учебники, имеющие&#xA;гриф Минобрнауки"
+                                   FontSize="20"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="#002359" 
+                                   Cursor="Hand" 
+                                   TextAlignment="Center"
+                                   MouseLeftButtonDown="Addendum_Add_Type_2"/>
+                        <Border.ToolTip>
+                            Перейти
+                        </Border.ToolTip>
+                    </Border>
+                    <Border Background="#C5E9FF" 
+                            CornerRadius="25"
+                            Height="249" Width="276"
+                            Margin="80,40,0,0"
+                            Cursor="Hand"
+                            MouseLeftButtonDown="Addendum_Add_Type_3">
+                        <TextBlock Text="Участие в&#xA;приглашенных&#xA;докладах на&#xA;международных и&#xA;российских&#xA;конференциях"
+                                   FontSize="20"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="#002359" 
+                                   Cursor="Hand" 
+                                   TextAlignment="Center"
+                                   MouseLeftButtonDown="Addendum_Add_Type_3"/>
+                        <Border.ToolTip>
+                            Перейти
+                        </Border.ToolTip>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" 
+                            Height="296"
+                            Margin="0,0,0,0">
+                    <Border Background="#C5E9FF"
+                            CornerRadius="25" 
+                            Height="248" Width="276"
+                            Margin="80,40,0,0"
+                            Cursor="Hand"
+                            MouseLeftButtonDown="Addendum_Add_Type_4">
+                        <TextBlock Text="Участие в устных&#xA;докладах на&#xA;международных и&#xA;российских&#xA;конференциях"
+                                   FontSize="20"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="#002359" 
+                                   Cursor="Hand" 
+                                   TextAlignment="Center"
+                                   MouseLeftButtonDown="Addendum_Add_Type_4"/>
+                        <Border.ToolTip>
+                            Перейти
+                        </Border.ToolTip>
+                    </Border>
+                    <Border Background="#C5E9FF"
+                            CornerRadius="25"
+                            Height="249" Width="276"
+                            Margin="80,40,0,0"
+                            Cursor="Hand"
+                            MouseLeftButtonDown="Addendum_Add_Type_5">
+                        <TextBlock Text="Участие в стендовых&#xA;докладах на&#xA;международных и&#xA;российских&#xA;конференциях"
+                                   FontSize="20"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="#002359" 
+                                   Cursor="Hand" 
+                                   TextAlignment="Center"
+                                   MouseLeftButtonDown="Addendum_Add_Type_5"/>
+                        <Border.ToolTip>
+                            Перейти
+                        </Border.ToolTip>
+                    </Border>
+                    <Border Background="#C5E9FF" 
+                            CornerRadius="25"
+                            Height="249" Width="276"
+                            Cursor="Hand"
+                            Margin="80,40,0,0"
+                            MouseLeftButtonDown="Addendum_Add_Type_6">
+                        <TextBlock Text="Чтение научно-&#xA;образовательного&#xA;курса лекций,&#xA;проведение&#xA;практических занятий,&#xA;лабораторных работ&#xA;для студентов ННГУ"
+                                   FontSize="20"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="#002359" 
+                                   Cursor="Hand" 
+                                   TextAlignment="Center"
+                                   MouseLeftButtonDown="Addendum_Add_Type_6"/>
+                        <Border.ToolTip>
+                            Перейти
+                        </Border.ToolTip>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" 
+                            Height="296"
+                            Margin="0,0,0,100">
+                    <Border Background="#C5E9FF"
+                            CornerRadius="25" 
+                            Height="248" Width="276"
+                            Cursor="Hand"
+                            Margin="80,40,0,0"
+                            MouseLeftButtonDown="Addendum_Add_Type_7">
+                        <TextBlock Text="Сведения о&#xA;зарегистрированных&#xA;результатах&#xA;интеллектуальной&#xA;деятельности"
+                                   FontSize="20"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="#002359" 
+                                   Cursor="Hand" 
+                                   TextAlignment="Center"
+                                   MouseLeftButtonDown="Addendum_Add_Type_7"/>
+                        <Border.ToolTip>
+                            Перейти
+                        </Border.ToolTip>
+                    </Border>
+                    <Border Background="#C5E9FF"
+                            CornerRadius="25"
+                            Height="249" Width="276"
+                            Margin="80,40,0,0"
+                            Cursor="Hand"
+                            MouseLeftButtonDown="Addendum_Add_Type_8">
+                        <TextBlock Text="Сведения о&#xA;руководстве&#xA;защищенными&#xA;диссертациями и&#xA;дипломными&#xA;работами"
+                                   FontSize="20"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="#002359" 
+                                   Cursor="Hand" 
+                                   TextAlignment="Center"
+                                   MouseLeftButtonDown="Addendum_Add_Type_8"/>
+                        <Border.ToolTip>
+                            Перейти
+                        </Border.ToolTip>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+        <Border Background="#002359" Height="50" Margin="55,0,0,750"/>
+
+    </Grid>
+</Page>
