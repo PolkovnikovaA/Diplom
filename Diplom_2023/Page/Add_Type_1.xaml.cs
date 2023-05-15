@@ -434,7 +434,6 @@ namespace Diplom_2023
             Parsing_Titles();
             Parsing_Authors();
             Points();
-            Raspredelenie();
             Addendum_Type1();
         }
 

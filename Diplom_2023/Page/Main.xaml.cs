@@ -6,6 +6,7 @@ using System.ComponentModel.Design;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -33,7 +34,7 @@ namespace Diplom_2023
 
             Visible_Menu();
             Points();
-            //Publik();
+            Publik();
         }
 
         // Раскрываем меню на странице авторизации
@@ -74,7 +75,21 @@ namespace Diplom_2023
 
         public int Count2()
         {
-            string stmt = "SELECT COUNT(*) FROM type";
+            /*DataBase dataBase31 = new DataBase();
+            MySqlCommand command31 = new MySqlCommand("SELECT id_users FROM id WHERE id_users = @id_users", dataBase31.getConnection());
+            command31.Parameters.Add("@id_users", MySqlDbType.VarChar).Value = user_id;
+            MySqlDataReader reader31;
+            command31.Connection.Open();
+            reader31 = command31.ExecuteReader();
+            reader31.Read();
+            string id = Convert.ToString(reader31["id"]);
+            reader31.Close();*/
+
+
+
+
+
+            string stmt = "SELECT COUNT(*) FROM id";
             int count = 0;
 
             using (MySqlConnection thisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=xr"))
@@ -86,6 +101,27 @@ namespace Diplom_2023
                 }
             }
             return count;
+        }
+
+        // Возраст
+        public int Year()
+        {
+            DateTime now = DateTime.Now;
+            string polz = Name.Text;
+
+            DataBase dataBase33 = new DataBase();
+            MySqlCommand command33 = new MySqlCommand("SELECT birthday FROM users WHERE login = @login", dataBase33.getConnection());
+            command33.Parameters.Add("@login", MySqlDbType.VarChar).Value = polz;
+            MySqlDataReader reader33;
+            command33.Connection.Open();
+            reader33 = command33.ExecuteReader();
+            reader33.Read();
+            DateTime user_id = Convert.ToDateTime(reader33["birthday"]);
+            reader33.Close();
+
+            int age = now.Year - user_id.Year;
+
+            return age;
         }
 
         // Вывод баллов
@@ -145,135 +181,58 @@ namespace Diplom_2023
                     }
                 }
             }
-        }
 
-        // Переменные для хранения необходимых данных
-        string part_3;  // 3 часть текста (выходные данные)
-        string part_2;  // 2 часть текста (авторы)
-        string part_1;  // 1 часть текста (название)
-        int number_of_authors;  // Количество авторов
-        string russian_foreign;  // Российский или зарубежный журнал
-        double point;  // Баллы
+            int age = Year();
+            double point = 0;
+
+            double summ = Convert.ToDouble(points.Text);
+            if (age < 31)
+            {
+                point = 1.5;
+            }
+            else
+                point = 1;
+            double itog = summ * point;
+            points.Text = Convert.ToString(itog);
+        }
 
         //Вывод кол-ва публикаций
         public void Publik()
         {
-            string str;
+            int count2 = Count2();
+
             string polz = Name.Text;
 
-            MySqlCommand command = new MySqlCommand();
-            string connectionString, commandString;
-            connectionString = "server=localhost;port=3306;username=root;password=root;database=xr";
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            commandString = "SELECT * FROM type";
-            command.CommandText = commandString;
-            command.Connection = connection;
-            MySqlDataReader reader;
-            try
+            DataBase dataBase3 = new DataBase();
+            MySqlCommand command3 = new MySqlCommand("SELECT id FROM users WHERE login = @login", dataBase3.getConnection());
+            command3.Parameters.Add("@login", MySqlDbType.VarChar).Value = polz;
+            MySqlDataReader reader3;
+            command3.Connection.Open();
+            reader3 = command3.ExecuteReader();
+            reader3.Read();
+            string user_id = Convert.ToString(reader3["id"]);
+            reader3.Close();
+
+            int ii = 0;
+            int id = 0;
+            DataBase dataBase312 = new DataBase();
+            MySqlCommand command312 = new MySqlCommand("SELECT id_users FROM id", dataBase312.getConnection());
+            //command312.Parameters.Add("@id_users", MySqlDbType.VarChar).Value = user_id;
+            MySqlDataReader reader312;
+            command312.Connection.Open();
+            reader312 = command312.ExecuteReader();
+            while (count2 > 0)
             {
-                command.Connection.Open();
-                reader = command.ExecuteReader();
+                reader312.Read();
+                id = Convert.ToInt32(reader312["id_users"]);
 
-                int count2 = Count2();
-                int ii = 0;
-
-            povtor3:
-                while (count2 > 0)
+                if(Convert.ToInt32(user_id) == id)
                 {
-                    reader.Read();
-                    str = "";
-                    str = Convert.ToString(reader["authors"]);
-
-                    string nazvanie = str;
-                    string nazvanie2 = str;
-                    string nazvanie3 = str;
-
-                    // 3 часть текста
-                    string[] words_c = nazvanie.Split('/');
-                    foreach (var word in words_c)
-                    {
-                        string c = word;
-                        part_3 = c;
-                    }
-
-                    // 2 часть текста:
-                    // 1. Посчитаем сколько символов в первой части
-                    nazvanie = nazvanie.Substring(0, nazvanie.LastIndexOf('/') + (-1));
-                    nazvanie2 = nazvanie.Substring(0, nazvanie.LastIndexOf('/') + 2);
-                    int length = nazvanie2.Length;   // количество символов в первой части
-                                                     // 2. Вычтим количество символов из 3 части
-                    nazvanie = nazvanie.Remove(0, length);
-                    part_2 = nazvanie;
-
-                    //1 часть текста
-                    nazvanie3 = nazvanie3.Substring(0, nazvanie3.LastIndexOf('/') + (-1));
-                    nazvanie3 = nazvanie3.Substring(0, nazvanie3.LastIndexOf('/') + (-1));
-                    part_1 = nazvanie3;
-
-                    // Подсчет авторов:
-                    // 1. Разделяем слова
-                    char[] words_authors = { ',' };
-                    string[] words = nazvanie.Split(words_authors);
-                    // 2. Считаем авторов
-                    int authors = words.Length;
-
-                    int j = 0;
-
-                    string q = "";
-
-                    string dest = "";
-                    string dest2 = "";
-                    if (polz.Length > 0)
-                    {
-                        dest = polz.Substring(0, polz.Length - 2);
-                        dest2 = polz.Substring(0, polz.Length - 2);
-                    }
-
-                povtor:
-                    for (int i = j; i < words.Length; i++)
-                    {
-                        string p = words[i];
-
-                    povtor2:
-                        foreach (char aut3 in dest)
-                        {
-                            foreach (char aut2 in p)
-                            {
-                                if (aut2 == aut3)
-                                {
-                                    q = q + Convert.ToString(aut2);
-                                    if (q == dest2)
-                                    {
-                                        ii++;
-                                        Public.Text = Convert.ToString(ii);
-                                        count2--;
-                                        goto povtor3;
-                                        //break;
-                                    }
-                                    dest = dest.Remove(0, 1);
-                                    goto povtor2;
-                                }
-                                else
-                                    p = p.Remove(0, 1);
-                                if (p == "")
-                                {
-                                    j++;
-                                    goto povtor;
-                                }
-                            }
-                        }
-                    }
-                    //count2--;
+                    ii++;
                 }
+                count2--;
             }
-            catch (MySqlException ex)
-            {
-                Console.WriteLine("Error: \r\n{0}", ex.ToString());
-            }
-            finally
-            {
-                command.Connection.Close();
-            }
+            Public.Text = Convert.ToString(ii);
 
             if (Public.Text == "")
             {
