@@ -91,13 +91,6 @@ namespace Diplom_2023
                 russian_foreign = "р";
         }
 
-        
-
-        public void Raspredelenie()
-        {
-
-        }
-
         public void Points()
         {
             // Передача текста из RichTextBox
@@ -172,11 +165,6 @@ namespace Diplom_2023
                 }
             }
             return count;
-        }
-
-        public void DB1()
-        {
-
         }
 
         public void Parsing_Authors()
@@ -427,16 +415,6 @@ namespace Diplom_2023
             reader31.Read();
             string type_id = Convert.ToString(reader31["id"]);  // id type
             reader31.Close();
-
-            /*DataBase dataBase3 = new DataBase();
-            MySqlCommand command3 = new MySqlCommand("SELECT id FROM users WHERE surname = @surname", dataBase3.getConnection());
-            command3.Parameters.Add("@surname", MySqlDbType.VarChar).Value = q;
-            MySqlDataReader reader3;
-            command3.Connection.Open();
-            reader3 = command3.ExecuteReader();
-            reader3.Read();
-            string user_id = Convert.ToString(reader3["id"]);
-            reader3.Close();*/
 
             DataBase dataBase22 = new DataBase();
             MySqlCommand command22 = new MySqlCommand("UPDATE `id` SET `id_type` = @id_type WHERE `id`.`id_type` = 1", dataBase22.getConnection());

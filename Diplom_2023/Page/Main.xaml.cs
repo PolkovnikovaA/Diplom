@@ -177,9 +177,6 @@ namespace Diplom_2023
                 int count2 = Count2();
                 int ii = 0;
 
-
-
-
             povtor3:
                 while (count2 > 0)
                 {
