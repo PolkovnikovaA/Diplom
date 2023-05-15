@@ -367,6 +367,7 @@
                 Click="Authorization_Main"/>
 
         <CheckBox Style="{DynamicResource CheckBoxStyle1}" 
+                  Name="Box"
                   Margin="450,466,916,303" 
                   BorderBrush="White" 
                   Cursor="Hand"

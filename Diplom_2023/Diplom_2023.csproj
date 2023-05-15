@@ -227,5 +227,8 @@
   <ItemGroup>
     <Resource Include="Image\Main\image7.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Login_and_password.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

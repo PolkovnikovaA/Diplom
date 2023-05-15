@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Diagnostics;
 
 namespace Diplom_2023
 {
@@ -24,12 +26,49 @@ namespace Diplom_2023
     public partial class Authorization : Page
     {
         public Frame frame1;
+
         public Authorization(Frame frame)
         {
             InitializeComponent();
             frame1 = frame;
-
             Hidden_Menu();
+            Save();
+        }
+
+        public void Save()
+        {
+            StreamReader reader = new StreamReader(@"C:\Users\21nas\source\repos\Diplom_2023\Diplom_2023\Login_and_password.txt", System.Text.Encoding.Default);
+            string[] strok = File.ReadAllLines(@"C:\Users\21nas\source\repos\Diplom_2023\Diplom_2023\Login_and_password.txt", System.Text.Encoding.Default);
+            if (strok.Length == 0)
+            {
+                //login.Text = "USERNAME";
+                //login.Foreground = new SolidColorBrush(Colors.Gray);
+            }
+            else
+            {
+                string part_3 = "";  // 2 часть текста (пароль)
+
+                string p = strok[0];
+                string p2 = strok[0];
+
+                // 1 часть текста:
+                // 1. Посчитаем сколько символов в первой части
+                p = p.Substring(0, p.LastIndexOf(' '));
+                login.Text = p;
+
+                // 2 часть текста
+                string[] words_c = p2.Split(' ');
+                foreach (var word in words_c)
+                {
+                    string c = word;
+                    part_3 = c;
+                }
+                password_open.Text = part_3;
+                password_close.Password = part_3;
+
+                Box.IsChecked = true;
+            }
+            reader.Close();
         }
 
         // Разделение пользователей
@@ -55,7 +94,7 @@ namespace Diplom_2023
             switch(Form_Role)
             {
                 case "Сотрудник":
-                    frame1.Navigate(new Main(frame1, item));
+                    frame1.Navigate(new Main(frame1));
                     break;
             }
             conn.Close();
@@ -84,7 +123,23 @@ namespace Diplom_2023
             adapter2.Fill(dataTable2);
 
             if (dataTable.Rows.Count > 0 || dataTable2.Rows.Count > 0)
+            {
                 userRole();
+
+                if (Box.IsChecked == true)
+                {
+                    StreamWriter writer = new StreamWriter(@"C:\Users\21nas\source\repos\Diplom_2023\Diplom_2023\Login_and_password.txt", false, Encoding.UTF8);
+                    writer.WriteLine(log + " " + pass_close);
+                    writer.Close();
+                }
+                else
+                {
+                    StreamWriter writer = new StreamWriter(@"C:\Users\21nas\source\repos\Diplom_2023\Diplom_2023\Login_and_password.txt");
+                    File.WriteAllText(Convert.ToString(writer), String.Empty);
+
+                    writer.Close();
+                }
+            }    
             else
                 MessageBox.Show("Неверный логин или пароль!");
         }

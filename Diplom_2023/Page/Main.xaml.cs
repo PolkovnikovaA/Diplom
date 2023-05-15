@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,16 +26,14 @@ namespace Diplom_2023
     public partial class Main : Page
     {
         public Frame frame1;
-        object Item;
-        public Main(Frame frame, object item)
+        public Main(Frame frame)
         {
             InitializeComponent();
             frame1 = frame;
-            Item = item;
 
             Visible_Menu();
             Points();
-            Publik();
+            //Publik();
         }
 
         // Раскрываем меню на странице авторизации
@@ -92,9 +91,20 @@ namespace Diplom_2023
         // Вывод баллов
         public void Points()
         {
+            StreamReader reader3 = new StreamReader(@"C:\Users\21nas\source\repos\Diplom_2023\Diplom_2023\Login_and_password.txt", System.Text.Encoding.Default);
+            string[] strok = File.ReadAllLines(@"C:\Users\21nas\source\repos\Diplom_2023\Diplom_2023\Login_and_password.txt", System.Text.Encoding.Default);
+
+            string pp = strok[0];
+
+            // 1 часть текста:
+            // 1. Посчитаем сколько символов в первой части
+            pp = pp.Substring(0, pp.LastIndexOf(' '));
+
+            reader3.Close();
+
             int count2 = Count();
             string str;
-            string p = Convert.ToString(Item);
+            string p = Convert.ToString(pp);
 
             MySqlCommand command = new MySqlCommand();
             string connectionString, commandString;
@@ -145,7 +155,7 @@ namespace Diplom_2023
         string russian_foreign;  // Российский или зарубежный журнал
         double point;  // Баллы
 
-        // Вывод кол-ва публикаций
+        //Вывод кол-ва публикаций
         public void Publik()
         {
             string str;

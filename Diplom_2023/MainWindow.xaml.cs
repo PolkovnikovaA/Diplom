@@ -28,8 +28,7 @@ namespace Diplom_2023
 
         private async void Menu_Main(object sender, MouseButtonEventArgs e)
         {
-            object item = textBlock1.Text;
-            FrameName.Navigate(new Main(FrameName, item));
+            FrameName.Navigate(new Main(FrameName));
         }
 
         private void Menu_Publications(object sender, MouseButtonEventArgs e)

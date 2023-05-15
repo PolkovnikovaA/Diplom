@@ -174,6 +174,11 @@ namespace Diplom_2023
             return count;
         }
 
+        public void DB1()
+        {
+
+        }
+
         public void Parsing_Authors()
         {
             // Передача текста из RichTextBox
@@ -220,10 +225,6 @@ namespace Diplom_2023
             {
                 command.Connection.Open();
                 reader = command.ExecuteReader();
-                //while (reader.Read())
-                //{
-
-
                 int count2 = Count();
                 
                 while(count2 > 0)
@@ -267,6 +268,42 @@ namespace Diplom_2023
                                         else
                                             MessageBox.Show("Произошла ошибка");
                                         dataBase2.closeConnection();
+
+
+
+                                        string zagl = "заглушка";
+
+                                        DataBase dataBase3 = new DataBase();
+                                        MySqlCommand command3 = new MySqlCommand("SELECT id FROM users WHERE surname = @surname", dataBase3.getConnection());
+                                        command3.Parameters.Add("@surname", MySqlDbType.VarChar).Value = q;
+                                        MySqlDataReader reader3;
+                                        command3.Connection.Open();
+                                        reader3 = command3.ExecuteReader();
+                                        reader3.Read();
+                                        string user_id = Convert.ToString(reader3["id"]);
+                                        reader3.Close();
+
+                                        DataBase dataBase31 = new DataBase();
+                                        MySqlCommand command31 = new MySqlCommand("SELECT `id` FROM `type` WHERE `authors` = @authors", dataBase31.getConnection());
+                                        command31.Parameters.Add("@authors", MySqlDbType.VarChar).Value = zagl;
+                                        MySqlDataReader reader31;
+                                        command31.Connection.Open();
+                                        reader31 = command31.ExecuteReader();
+                                        reader31.Read();
+                                        string type_id = Convert.ToString(reader31["id"]);
+                                        reader31.Close();
+
+                                        DataBase dataBase4 = new DataBase();
+                                        MySqlCommand command4 = new MySqlCommand("INSERT INTO `id` (`id_users`, `id_type`) VALUES (@iU, @iT)", dataBase4.getConnection());
+                                        command4.Parameters.Add("@iU", MySqlDbType.Int32).Value = Convert.ToInt32(user_id);
+                                        command4.Parameters.Add("@iT", MySqlDbType.Int32).Value = Convert.ToInt32(type_id);
+                                        dataBase4.openConnection();
+                                        if (command4.ExecuteNonQuery() == 1)
+                                        {
+                                        }
+                                        else
+                                            MessageBox.Show("Произошла ошибка");
+                                        dataBase4.closeConnection();
                                         //str = "";
                                         break;
                                     }
@@ -380,9 +417,39 @@ namespace Diplom_2023
             else
                 MessageBox.Show("Произошла ошибка");
             dataBase2.closeConnection();
+
+            DataBase dataBase31 = new DataBase();
+            MySqlCommand command31 = new MySqlCommand("SELECT `id` FROM `type` WHERE `authors` = @authors", dataBase31.getConnection());
+            command31.Parameters.Add("@authors", MySqlDbType.VarChar).Value = Nazvanie2;
+            MySqlDataReader reader31;
+            command31.Connection.Open();
+            reader31 = command31.ExecuteReader();
+            reader31.Read();
+            string type_id = Convert.ToString(reader31["id"]);  // id type
+            reader31.Close();
+
+            /*DataBase dataBase3 = new DataBase();
+            MySqlCommand command3 = new MySqlCommand("SELECT id FROM users WHERE surname = @surname", dataBase3.getConnection());
+            command3.Parameters.Add("@surname", MySqlDbType.VarChar).Value = q;
+            MySqlDataReader reader3;
+            command3.Connection.Open();
+            reader3 = command3.ExecuteReader();
+            reader3.Read();
+            string user_id = Convert.ToString(reader3["id"]);
+            reader3.Close();*/
+
+            DataBase dataBase22 = new DataBase();
+            MySqlCommand command22 = new MySqlCommand("UPDATE `id` SET `id_type` = @id_type WHERE `id`.`id_type` = 1", dataBase22.getConnection());
+            command22.Parameters.Add("@id_type", MySqlDbType.Int32).Value = Convert.ToInt32(type_id);
+
+            dataBase22.openConnection();
+            if (command22.ExecuteNonQuery() == 1)
+            {
+            }
+            else
+                MessageBox.Show("Произошла ошибка");
+            dataBase2.closeConnection();
         }
-
-
 
         private void Add(object sender, RoutedEventArgs e)
         {
