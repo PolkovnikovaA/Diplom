@@ -9,80 +9,336 @@
       Title="Publications">
 
     <Grid Height="800" Width="1400">
-        <ListView x:Name="LViewTours_Type_1"
-                  ItemsSource="{Binding Type_1}"
-                  Visibility="Visible"
-                  Cursor="Hand" Margin="102,72,38,53">
+        <TabControl Margin="102,72,49,62">
+            <TabItem x:Name="smartphonesTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="10" Width="10" />
+                        <TextBlock Margin="3" Text="Список публикаций...">
+                            <TextBlock.ToolTip>
+                                <ToolTip>
+                                    Список публикаций в рецензируемых периодических журналах
+                                </ToolTip>
+                            </TextBlock.ToolTip>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <TextBlock Text="Список публикаций в рецензируемых периодических журналах" 
+                       Height="40" 
+                       Margin="0,10,0,0" 
+                       Foreground="#002359"
+                       Padding="25,4,0,0"
+                       FontSize="20" Width="651"/>
+                        <ListView x:Name="LViewType2" HorizontalAlignment="Stretch"  
+                  Margin="10,10,10,10">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
+                      Header="Авторы, название, выходные данные" Width="300"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=ross_zarub}" 
+                      Header="Российский или зарубежный журнал" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=theoretical}" 
+                      Header="Является ли работа чисто теоретической" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
+                      Header="Число авторов" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=impact}" 
+                      Header="Импакт фактор журнала" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=conclusion}" 
+                      Header="№ экспертного заключения" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
+                      Header="Балл" Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
 
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="HorizontalContentAlignment"
-                            Value="Stretch"/>
-                </Style>
-            </ListView.ItemContainerStyle>
+            <TabItem x:Name="smartphonesTab2">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="10" Width="10" />
+                        <TextBlock Margin="3" Text="Вышедшие монографии...">
+                            <TextBlock.ToolTip>
+                                <ToolTip>
+                                    Вышедшие монографии, изданные в научных издательствах
+                                    имеющие шифр ISBN, и учебники, имеющие гриф Минобрнауки
+                                </ToolTip>
+                            </TextBlock.ToolTip>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <TextBlock Text="Вышедшие монографии, изданные в научных издательствах имеющие шифр ISBN, и учебники, имеющие гриф Минобрнауки" 
+                       Height="40" 
+                       Margin="0,10,0,0" 
+                       Foreground="#002359"
+                       Padding="25,4,0,0"
+                       FontSize="20" Width="1205"/>
+                        <ListView x:Name="LViewType3" HorizontalAlignment="Stretch"  
+                  Margin="10,10,10,10" VerticalAlignment="Stretch">
+                            <ListView.View>
+                                <GridView>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
+                      Header="Авторы, название, выходные данные" Width="300"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=printed_sheets}" 
+                      Header="Кол-во печатных листов" Width="150"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
+                      Header="Число авторов" Width="150"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
+                      Header="Балл" Width="100"/>
+                                    </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
 
-            <ListView.ItemTemplate>
-                <DataTemplate>
+            <TabItem x:Name="smartphonesTab3">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="10" Width="10" />
+                        <TextBlock Margin="3" Text=" Участие в пригл...">
+                            <TextBlock.ToolTip>
+                                <ToolTip>
+                                    Участие в приглашенных докладах на международных и российских конференциях
+                                </ToolTip>
+                            </TextBlock.ToolTip>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <TextBlock Text="Участие в приглашенных докладах на международных и российских конференциях" 
+                       Height="40" 
+                       Margin="0,10,0,0" 
+                       Foreground="#002359"
+                       Padding="25,4,0,0"
+                       FontSize="20" Width="821"/>
+                        <ListView x:Name="LViewType4" HorizontalAlignment="Stretch"  
+                  Margin="10,10,10,10" VerticalAlignment="Stretch">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
+                      Header="Авторы, название доклада, конференции" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=theoretical}" 
+                      Header="Является ли работа чисто теоретической" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
+                      Header="Число авторов" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
+                      Header="Балл" Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
 
-                    <Grid Cursor="Hand" Name="test">
-                        <Border BorderThickness="1" 
-                            BorderBrush="Black" 
-                            CornerRadius="5">
+            <TabItem x:Name="smartphonesTab4">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="10" Width="10" />
+                        <TextBlock Margin="3" Text="Участие в уст...">
+                            <TextBlock.ToolTip>
+                                <ToolTip>
+                                    Участие в устных докладах на международных и российских конференциях
+                                </ToolTip>
+                            </TextBlock.ToolTip>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <TextBlock Text="Участие в устных докладах на международных и российских конференциях" 
+                       Height="40" 
+                       Margin="0,10,0,0" 
+                       Foreground="#002359"
+                       Padding="25,4,0,0"
+                       FontSize="20" Width="821"/>
+                        <ListView x:Name="LViewType5" HorizontalAlignment="Stretch"  
+                  Margin="10,10,10,10" VerticalAlignment="Stretch">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
+                      Header="Авторы, название доклада, конференции" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=theoretical}" 
+                      Header="Является ли работа чисто теоретической" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
+                      Header="Число авторов" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
+                      Header="Балл" Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
 
-                            <Grid Margin="0" 
-                              HorizontalAlignment="Stretch">
-                                <Grid.ToolTip>
-                                    <ToolTip Content="Перейти"/>
-                                </Grid.ToolTip>
+            <TabItem x:Name="smartphonesTab5">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="10" Width="10" />
+                        <TextBlock Margin="3" Text="Участие в стен...">
+                            <TextBlock.ToolTip>
+                                <ToolTip>
+                                    Участие в стендовых докладах на международных и российских конференциях
+                                </ToolTip>
+                            </TextBlock.ToolTip>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <TextBlock Text="Участие в стендовых докладах на международных и российских конференциях" 
+                       Height="40" 
+                       Margin="0,10,0,0" 
+                       Foreground="#002359"
+                       Padding="25,4,0,0"
+                       FontSize="20" Width="796"/>
+                        <ListView x:Name="LViewType6" HorizontalAlignment="Stretch"  
+                  Margin="10,10,10,10" VerticalAlignment="Stretch">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
+                      Header="Авторы, название доклада, конференции" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=theoretical}" 
+                      Header="Является ли работа чисто теоретической" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
+                      Header="Число авторов" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
+                      Header="Балл" Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="10"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
+            <TabItem x:Name="smartphonesTab6">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="10" Width="10" />
+                        <TextBlock Margin="3" Text="Чтение научно-обр...">
+                            <TextBlock.ToolTip>
+                                <ToolTip>
+                                    Чтение научно-образовательного курса лекций, проведение практических занятий,&#xA;лабораторных работ для студентов ННГУ
+                                </ToolTip>
+                            </TextBlock.ToolTip>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <TextBlock Text="Чтение научно-образовательного курса лекций, проведение практических занятий, лабораторных работ для студентов ННГУ" 
+                       Height="40" 
+                       Margin="0,10,0,0" 
+                       Foreground="#002359"
+                       Padding="25,4,0,0"
+                       FontSize="20" Width="1202"/>
+                        <ListView x:Name="LViewType7" HorizontalAlignment="Stretch"  
+                  Margin="10,10,10,10" VerticalAlignment="Stretch">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=name}" 
+                      Header="Название курса" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=view}" 
+                      Header="лекции/ практика/ лаб.раб." Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
+                      Header="Число семестров" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
+                      Header="Балл" Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
 
-                                <StackPanel Grid.Column="1"
-                                        Margin="15"
-                                        Orientation="Horizontal">
+            <TabItem x:Name="smartphonesTab7">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="10" Width="10" />
+                        <TextBlock Margin="3" Text="Сведения о зарег...">
+                            <TextBlock.ToolTip>
+                                <ToolTip>
+                                    Сведения о зарегистрированных результатах интеллектуальной деятельности
+                                </ToolTip>
+                            </TextBlock.ToolTip>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <TextBlock Text="Сведения о зарегистрированных результатах интеллектуальной деятельности" 
+                       Height="40" 
+                       Margin="0,10,0,0" 
+                       Foreground="#002359"
+                       Padding="25,4,0,0"
+                       FontSize="20" Width="773"/>
+                        <ListView x:Name="LViewType8" HorizontalAlignment="Stretch"  
+                  Margin="10,10,10,10" VerticalAlignment="Stretch">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
+                      Header="Авторы, название результата интеллектуальной деятельности" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=paternoe}" 
+                      Header="Является ли работа патентным изобретением" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
+                      Header="Число авторов" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
+                      Header="Балл" Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
 
-                                    <StackPanel Grid.Column="1"
-                                            Margin="0"
-                                            Orientation="Vertical">
-                                        <TextBlock Text="{Binding Authors}"
-                                                   Visibility="Visible"
-                                               FontFamily="Monotype Corsiva"
-                                               FontSize="30"/>
-                                        <TextBlock Text="{Binding Ross_zarub}"
-                                                   Visibility="Visible"
-                                               FontFamily="Monotype Corsiva"
-                                               FontSize="30"/>
-                                        <TextBlock Text="{Binding Theoretical}"
-                                                   Visibility="Visible"
-                                               FontFamily="Monotype Corsiva"
-                                               FontSize="30"/>
-                                        <TextBlock Text="{Binding Number_authors}"
-                                                   Visibility="Visible"
-                                               FontFamily="Monotype Corsiva"
-                                               FontSize="30"/>
-                                        <TextBlock Text="{Binding Impact}"
-                                                   Visibility="Visible"
-                                               FontFamily="Monotype Corsiva"
-                                               FontSize="30"/>
-                                        <TextBlock Text="{Binding Conclusion}"
-                                                   Visibility="Visible"
-                                               FontFamily="Monotype Corsiva"
-                                               FontSize="30"/>
-                                        <TextBlock Text="{Binding Points, StringFormat=\{0:N2\} (баллов)}"
-                                               FontFamily="Monotype Corsiva"
-                                               FontSize="30"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            <TabItem x:Name="smartphonesTab8">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="10" Width="10" />
+                        <TextBlock Margin="3" Text="Сведения о руко...">
+                            <TextBlock.ToolTip>
+                                <ToolTip>
+                                    Сведения о руководстве защищенными диссертациями и дипломными работами
+                                </ToolTip>
+                            </TextBlock.ToolTip>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <TextBlock Text="Сведения о руководстве защищенными диссертациями и дипломными работами" 
+                       Height="40" 
+                       Margin="0,10,0,0" 
+                       Foreground="#002359"
+                       Padding="25,4,0,0"
+                       FontSize="20" Width="798"/>
+                        <ListView x:Name="LViewType9" HorizontalAlignment="Stretch"  
+                  Margin="10,10,10,10" VerticalAlignment="Stretch">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
+                      Header="Автор, название работы" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=diploma}" 
+                      Header="Диссертация или диплом" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
+                      Header="Число руководителей" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
+                      Header="Балл" Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+
+
         <Border Background="#002359" Height="50" Margin="55,-1,0,751">
             <TextBox Height="30" Width="300" 
                      Margin="46,0,999,0" 

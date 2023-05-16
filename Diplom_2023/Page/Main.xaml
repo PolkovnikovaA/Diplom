@@ -51,14 +51,13 @@
         <Border Margin="126,90,921,536"
                 CornerRadius="15"
                    Background="#FFC5E9FF">
-            <TextBlock FontSize="25" 
-                       Width="100"
+            <TextBlock FontSize="25"
                        Name="points"
                        TextAlignment="Center"
                        FontFamily="Cambria" 
                        Foreground="#002359" 
                        Background="#FFC5E9FF" 
-                       Margin="126,59,127,65" 
+                       Margin="85,59,85,65" 
                        FontWeight="Bold"/>
         </Border>
 
@@ -73,14 +72,13 @@
         <Border Margin="544,90,504,536"
                 CornerRadius="15"
                    Background="#FFC5E9FF">
-            <TextBlock FontSize="25" 
-                       Width="100"
+            <TextBlock FontSize="25"
                        Name="Public"
                        TextAlignment="Center"
                        FontFamily="Cambria" 
                        Foreground="#002359" 
                        Background="#FFC5E9FF" 
-                       Margin="126,59,126,65" 
+                       Margin="70,59,70,65" 
                        FontWeight="Bold"/>
         </Border>
 

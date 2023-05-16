@@ -113,7 +113,7 @@ namespace Diplom_2023
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = log;
             command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = pass_open;
             adapter.SelectCommand = command;
-            adapter.Fill(dataTable);
+            adapter.Fill(dataTable);    //
 
             DataTable dataTable2 = new DataTable();
             MySqlDataAdapter adapter2 = new MySqlDataAdapter();

@@ -272,7 +272,7 @@ namespace Diplom_2023
                                         reader3.Close();
 
                                         DataBase dataBase31 = new DataBase();
-                                        MySqlCommand command31 = new MySqlCommand("SELECT `id` FROM `type` WHERE `authors` = @authors", dataBase31.getConnection());
+                                        MySqlCommand command31 = new MySqlCommand("SELECT `id` FROM `type_1` WHERE `authors` = @authors", dataBase31.getConnection());
                                         command31.Parameters.Add("@authors", MySqlDbType.VarChar).Value = zagl;
                                         MySqlDataReader reader31;
                                         command31.Connection.Open();
@@ -282,7 +282,7 @@ namespace Diplom_2023
                                         reader31.Close();
 
                                         DataBase dataBase4 = new DataBase();
-                                        MySqlCommand command4 = new MySqlCommand("INSERT INTO `id` (`id_users`, `id_type`) VALUES (@iU, @iT)", dataBase4.getConnection());
+                                        MySqlCommand command4 = new MySqlCommand("INSERT INTO `id_type_1` (`id_users`, `id_type_1`) VALUES (@iU, @iT)", dataBase4.getConnection());
                                         command4.Parameters.Add("@iU", MySqlDbType.Int32).Value = Convert.ToInt32(user_id);
                                         command4.Parameters.Add("@iT", MySqlDbType.Int32).Value = Convert.ToInt32(type_id);
                                         dataBase4.openConnection();
@@ -387,27 +387,8 @@ namespace Diplom_2023
                 MessageBox.Show("Произошла ошибка");
             dataBase.closeConnection();
 
-            DataBase dataBase2 = new DataBase();
-            MySqlCommand command2 = new MySqlCommand("INSERT INTO `type` (`authors`) VALUES (@authors)", dataBase2.getConnection());
-
-            command2.Parameters.Add("@authors", MySqlDbType.VarChar).Value = Nazvanie2;
-            dataBase2.openConnection();
-            if (command2.ExecuteNonQuery() == 1)
-            {
-                MessageBoxResult result2 = MessageBox.Show("Все хорошо", "Confirmation", MessageBoxButton.YesNo);
-                if (result2 == MessageBoxResult.Yes)
-                {
-                    frame1.Navigate(new Add_Type_1(frame1));
-                }
-                else
-                    frame1.Navigate(new Addendum(frame1));
-            }
-            else
-                MessageBox.Show("Произошла ошибка");
-            dataBase2.closeConnection();
-
             DataBase dataBase31 = new DataBase();
-            MySqlCommand command31 = new MySqlCommand("SELECT `id` FROM `type` WHERE `authors` = @authors", dataBase31.getConnection());
+            MySqlCommand command31 = new MySqlCommand("SELECT `id` FROM `type_1` WHERE `authors` = @authors", dataBase31.getConnection());
             command31.Parameters.Add("@authors", MySqlDbType.VarChar).Value = Nazvanie2;
             MySqlDataReader reader31;
             command31.Connection.Open();
@@ -417,8 +398,8 @@ namespace Diplom_2023
             reader31.Close();
 
             DataBase dataBase22 = new DataBase();
-            MySqlCommand command22 = new MySqlCommand("UPDATE `id` SET `id_type` = @id_type WHERE `id`.`id_type` = 1", dataBase22.getConnection());
-            command22.Parameters.Add("@id_type", MySqlDbType.Int32).Value = Convert.ToInt32(type_id);
+            MySqlCommand command22 = new MySqlCommand("UPDATE `id_type_1` SET `id_type_1` = @id_type_1 WHERE `id_type_1`.`id_type_1` = 1", dataBase22.getConnection());
+            command22.Parameters.Add("@id_type_1", MySqlDbType.Int32).Value = Convert.ToInt32(type_id);
 
             dataBase22.openConnection();
             if (command22.ExecuteNonQuery() == 1)
@@ -426,7 +407,7 @@ namespace Diplom_2023
             }
             else
                 MessageBox.Show("Произошла ошибка");
-            dataBase2.closeConnection();
+            dataBase22.closeConnection();
         }
 
         private void Add(object sender, RoutedEventArgs e)

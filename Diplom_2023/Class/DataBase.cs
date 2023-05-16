@@ -11,6 +11,7 @@ namespace Diplom_2023
     {
         // Подключение к БД
         MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=xr");
+        //MySqlConnection connection = new MySqlConnection("server=ssh.h810177425.nichost.ru;username=h810177425;password=Wsxedcrfvtgb2020");
 
         public void openConnection()
         {

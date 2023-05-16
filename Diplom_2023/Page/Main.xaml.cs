@@ -75,20 +75,6 @@ namespace Diplom_2023
 
         public int Count2()
         {
-            /*DataBase dataBase31 = new DataBase();
-            MySqlCommand command31 = new MySqlCommand("SELECT id_users FROM id WHERE id_users = @id_users", dataBase31.getConnection());
-            command31.Parameters.Add("@id_users", MySqlDbType.VarChar).Value = user_id;
-            MySqlDataReader reader31;
-            command31.Connection.Open();
-            reader31 = command31.ExecuteReader();
-            reader31.Read();
-            string id = Convert.ToString(reader31["id"]);
-            reader31.Close();*/
-
-
-
-
-
             string stmt = "SELECT COUNT(*) FROM id";
             int count = 0;
 
