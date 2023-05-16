@@ -37,18 +37,6 @@
                 <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#002359"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Key="Storyboard5">
-            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock_Copy1">
-                <EasingColorKeyFrame KeyTime="0" Value="#002359"/>
-                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#0A2E66"/>
-            </ColorAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="Storyboard6">
-            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock_Copy1">
-                <EasingColorKeyFrame KeyTime="0" Value="#0A2E66"/>
-                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#002359"/>
-            </ColorAnimationUsingKeyFrames>
-        </Storyboard>
         <Storyboard x:Key="Storyboard7">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock_Copy2">
                 <EasingColorKeyFrame KeyTime="0" Value="#002359"/>
@@ -101,9 +89,6 @@
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock_Copy">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock_Copy1">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock_Copy2">
@@ -185,12 +170,6 @@
         <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="textBlock_Copy">
             <BeginStoryboard Storyboard="{StaticResource Storyboard4}"/>
         </EventTrigger>
-        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="textBlock_Copy1">
-            <BeginStoryboard Storyboard="{StaticResource Storyboard5}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="textBlock_Copy1">
-            <BeginStoryboard Storyboard="{StaticResource Storyboard6}"/>
-        </EventTrigger>
         <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="textBlock_Copy2">
             <BeginStoryboard Storyboard="{StaticResource Storyboard7}"/>
         </EventTrigger>
@@ -252,15 +231,8 @@
             </Ellipse.Fill>
             <Ellipse.ToolTip>Публикации</Ellipse.ToolTip>
         </Ellipse>
-        <TextBlock x:Name="textBlock_Copy1" MouseLeftButtonDown="Menu_Messagea" Cursor="Hand" HorizontalAlignment="Left" Height="31" Margin="19,202,0,0" TextWrapping="Wrap" Text="Сообщения" VerticalAlignment="Top" Width="185" Padding="55,6,0,0" Style="{DynamicResource TextBlockStyle1}" Background="#002359" Foreground="White" FontSize="15" Visibility="Hidden"/>
-        <Ellipse x:Name="ellipse_messenger" MouseLeftButtonDown="Menu_Messagea" x:FieldModifier="public" Cursor="Hand" HorizontalAlignment="Left" Height="35" Margin="16,200,0,0" VerticalAlignment="Top" Width="35">
-            <Ellipse.Fill>
-                <ImageBrush ImageSource="/Image/Menu/image3.jpg"/>
-            </Ellipse.Fill>
-            <Ellipse.ToolTip>Сообщения</Ellipse.ToolTip>
-        </Ellipse>
-        <TextBlock x:Name="textBlock_Copy2" MouseLeftButtonDown="Menu_Rating" Cursor="Hand" HorizontalAlignment="Left" Height="30" Margin="20,254,0,0" TextWrapping="Wrap" Text="Рейтинг" VerticalAlignment="Top" Width="185" Padding="55,6,0,0" Style="{DynamicResource TextBlockStyle1}" Background="#002359" Foreground="White" FontSize="15" Visibility="Hidden"/>
-        <Ellipse x:Name="ellipse_rating" MouseLeftButtonDown="Menu_Rating" x:FieldModifier="public" Cursor="Hand" HorizontalAlignment="Left" Height="35" Margin="14,252,0,0" VerticalAlignment="Top" Width="40">
+        <TextBlock x:Name="textBlock_Copy2" MouseLeftButtonDown="Menu_Rating" Cursor="Hand" HorizontalAlignment="Left" Height="30" Margin="20,209,0,0" TextWrapping="Wrap" Text="Рейтинг" VerticalAlignment="Top" Width="185" Padding="55,6,0,0" Style="{DynamicResource TextBlockStyle1}" Background="#002359" Foreground="White" FontSize="15" Visibility="Hidden"/>
+        <Ellipse x:Name="ellipse_rating" MouseLeftButtonDown="Menu_Rating" x:FieldModifier="public" Cursor="Hand" HorizontalAlignment="Left" Height="35" Margin="14,207,0,0" VerticalAlignment="Top" Width="40">
             <Ellipse.Fill>
                 <ImageBrush ImageSource="/Image/Menu/image4.jpg"/>
             </Ellipse.Fill>

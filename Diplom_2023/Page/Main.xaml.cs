@@ -1,5 +1,6 @@
 ﻿using Microsoft.SqlServer.Server;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -47,7 +48,6 @@ namespace Diplom_2023
                     (window as MainWindow).rectangle.Visibility = Visibility.Visible;
                     (window as MainWindow).ellipse_main.Visibility = Visibility.Visible;
                     (window as MainWindow).ellipse_publication.Visibility = Visibility.Visible;
-                    (window as MainWindow).ellipse_messenger.Visibility = Visibility.Visible;
                     (window as MainWindow).ellipse_rating.Visibility = Visibility.Visible;
                     (window as MainWindow).ellipse_help.Visibility = Visibility.Visible;
                     (window as MainWindow).ellipse_exit.Visibility = Visibility.Visible;

@@ -38,15 +38,15 @@
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
                       Header="Авторы, название, выходные данные" Width="300"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=ross_zarub}" 
-                      Header="Российский или зарубежный журнал" Width="100"/>
+                      Header="Российский или зарубежный журнал" Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=theoretical}" 
-                      Header="Является ли работа чисто теоретической" Width="100"/>
+                      Header="Является ли работа чисто теоретической" Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
                       Header="Число авторов" Width="100"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=impact}" 
-                      Header="Импакт фактор журнала" Width="100"/>
+                      Header="Импакт фактор журнала" Width="170"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=conclusion}" 
-                      Header="№ экспертного заключения" Width="100"/>
+                      Header="№ экспертного заключения" Width="200"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
                       Header="Балл" Width="100"/>
                                 </GridView>
@@ -123,11 +123,11 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
-                      Header="Авторы, название доклада, конференции" Width="100"/>
+                      Header="Авторы, название доклада, конференции" Width="300"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=theoretical}" 
-                      Header="Является ли работа чисто теоретической" Width="100"/>
+                      Header="Является ли работа чисто теоретической" Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
-                      Header="Число авторов" Width="100"/>
+                      Header="Число авторов" Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
                       Header="Балл" Width="100"/>
                                 </GridView>
@@ -163,11 +163,11 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
-                      Header="Авторы, название доклада, конференции" Width="100"/>
+                      Header="Авторы, название доклада, конференции" Width="300"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=theoretical}" 
-                      Header="Является ли работа чисто теоретической" Width="100"/>
+                      Header="Является ли работа чисто теоретической" Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
-                      Header="Число авторов" Width="100"/>
+                      Header="Число авторов" Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
                       Header="Балл" Width="100"/>
                                 </GridView>
@@ -203,11 +203,11 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
-                      Header="Авторы, название доклада, конференции" Width="100"/>
+                      Header="Авторы, название доклада, конференции" Width="300"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=theoretical}" 
-                      Header="Является ли работа чисто теоретической" Width="100"/>
+                      Header="Является ли работа чисто теоретической" Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
-                      Header="Число авторов" Width="100"/>
+                      Header="Число авторов" Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
                       Header="Балл" Width="100"/>
                                 </GridView>
@@ -243,11 +243,11 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=name}" 
-                      Header="Название курса" Width="100"/>
+                      Header="Название курса" Width="300"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=view}" 
-                      Header="лекции/ практика/ лаб.раб." Width="100"/>
+                      Header="лекции/ практика/ лаб.раб." Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
-                      Header="Число семестров" Width="100"/>
+                      Header="Число семестров" Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
                       Header="Балл" Width="100"/>
                                 </GridView>
@@ -283,11 +283,11 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
-                      Header="Авторы, название результата интеллектуальной деятельности" Width="100"/>
+                      Header="Авторы, название результата интеллектуальной деятельности" Width="300"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=paternoe}" 
-                      Header="Является ли работа патентным изобретением" Width="100"/>
+                      Header="Является ли работа патентным изобретением" Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
-                      Header="Число авторов" Width="100"/>
+                      Header="Число авторов" Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
                       Header="Балл" Width="100"/>
                                 </GridView>
@@ -323,11 +323,11 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
-                      Header="Автор, название работы" Width="100"/>
+                      Header="Автор, название работы" Width="300"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=diploma}" 
-                      Header="Диссертация или диплом" Width="100"/>
+                      Header="Диссертация или диплом" Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=number_authors}" 
-                      Header="Число руководителей" Width="100"/>
+                      Header="Число руководителей" Width="150"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=points}" 
                       Header="Балл" Width="100"/>
                                 </GridView>
@@ -340,36 +340,9 @@
 
 
         <Border Background="#002359" Height="50" Margin="55,-1,0,751">
-            <TextBox Height="30" Width="300" 
-                     Margin="46,0,999,0" 
-                     BorderBrush="{x:Null}"
-                     Foreground="#002359"
-                     Padding="25,4,0,0" 
-                     VerticalAlignment="Center"
-                     FontSize="15"/>
-        </Border>
-
-        <Button Content="Добавить" 
-                Margin="848,11,357,751"
+            <Button Content="Добавить" 
+                Margin="54,11,1151,10"
                 Click="Addendum"/>
-
-        <Button Content="Печатать" 
-                Margin="1066,11,129,751"
-                Click="Print"/>
-
-        <ComboBox Height="30" Width="300" 
-                  Margin="428,10,672,0" 
-                  BorderBrush="{x:Null}"
-                  Foreground="#002359"
-                  Padding="25,4,0,0" 
-                  VerticalAlignment="Top"
-                  FontSize="15">
-            <ComboBox.Background>
-                <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="#FFF0F0F0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </ComboBox.Background>
-        </ComboBox>
+        </Border>
     </Grid>
 </Page>

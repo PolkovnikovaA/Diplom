@@ -96,6 +96,9 @@ namespace Diplom_2023
                 case "Сотрудник":
                     frame1.Navigate(new Main(frame1));
                     break;
+                case "Главный":
+                    frame1.Navigate(new Main(frame1));
+                    break;
             }
             conn.Close();
         }
@@ -154,7 +157,6 @@ namespace Diplom_2023
                     (window as MainWindow).rectangle.Visibility = Visibility.Hidden;
                     (window as MainWindow).ellipse_main.Visibility = Visibility.Hidden;
                     (window as MainWindow).ellipse_publication.Visibility = Visibility.Hidden;
-                    (window as MainWindow).ellipse_messenger.Visibility = Visibility.Hidden;
                     (window as MainWindow).ellipse_rating.Visibility = Visibility.Hidden;
                     (window as MainWindow).ellipse_help.Visibility = Visibility.Hidden;
                     (window as MainWindow).ellipse_exit.Visibility = Visibility.Hidden;
