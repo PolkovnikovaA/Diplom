@@ -125,5 +125,36 @@
                    Foreground="#002359" 
                    Background="#FFC5E9FF" 
                    Margin="1006,192,130,568" />
+        
+        <Border Background="White"  Margin="126,310,86,53" CornerRadius="15"/>
+        <Line X1="125" Y1="730" X2="1300" Y2="730" Margin="37,-28,132,28" Stroke="Gray"/>
+        <Line X1="125" Y1="730" X2="125" Y2="330" Margin="37,24,-32,98" Stroke="Gray"/>
+        <TextBlock Text="1" Foreground="#002359" FontSize="25" Margin="218,702,1166,62"/>
+        <TextBlock Text="2" Foreground="#002359" FontSize="25" Margin="322,702,1062,62"/>
+        <TextBlock Text="3" Foreground="#002359" FontSize="25" Margin="424,702,960,62"/>
+        <TextBlock Text="4" Foreground="#002359" FontSize="25" Margin="515,702,869,62"/>
+        <TextBlock Text="5" Foreground="#002359" FontSize="25" Margin="610,702,774,62"/>
+        <TextBlock Text="6" Foreground="#002359" FontSize="25" Margin="700,702,684,62"/>
+        <TextBlock Text="7" Foreground="#002359" FontSize="25" Margin="792,702,592,62"/>
+        <TextBlock Text="8" Foreground="#002359" FontSize="25" Margin="880,702,504,62"/>
+        <Border Background="#4479A5"  Margin="191,596,1144,99"/>
+        <Border Background="#4479A5"  Margin="856,687,480,98"/>
+        <Border Background="#4479A5"  Margin="768,617,568,98"/>
+        <Border Background="#4479A5"  Margin="676,686,660,98" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <Border Background="#4479A5"  Margin="586,668,750,98"/>
+        <Border Background="#4479A5"  Margin="491,634,844,98"/>
+        <Border Background="#4479A5"  Margin="400,687,936,98"/>
+        <Border Background="#4479A5"  Margin="298,648,1038,99"/>
+
+
     </Grid>
 </Page>
