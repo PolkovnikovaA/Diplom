@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Diplom_2023"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1400"
-      Title="Add_Type_1">
+      Title="Add_Type_1" DataContext ="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <Page.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -66,25 +66,207 @@
     </Page.Resources>
 
     <Grid Height="800" Width="1400">
-        <Border Background="#96C3EA"
-                CornerRadius="25"
-                Cursor="Hand"
-                Margin="152,80,86,59"/>
 
-        <Border Background="White"
-                CornerRadius="25"
-                Cursor="Hand"
-                Margin="195,172,131,463">
-            <RichTextBox x:Name="Nazvanie"
-                         FontSize="20"
-                         VerticalAlignment="Center"
-                         HorizontalAlignment="Center"
-                         Foreground="#002359" 
-                         Cursor="Hand" 
-                         BorderBrush="White" 
-                         Background="White" 
-                         Width="1004" Height="112"/>
-        </Border>
+        <Border Background="#96C3EA"
+                Name="Bor1"
+                Visibility="Hidden"
+                            CornerRadius="25"
+                            Cursor="Hand" Margin="152,80,86,70"/>
+        <Border Background="#96C3EA"
+                Name="Bor"
+                            CornerRadius="25"
+                            Cursor="Hand" Margin="152,80,86,70"/>
+
+        <ScrollViewer Margin="152,80,86,70" Background="{x:Null}"
+                      BorderBrush="{x:Null}"
+                      VerticalScrollBarVisibility="Hidden">
+            <StackPanel>
+                <TextBlock Text="Название, авторы, выходные данные"
+                   Foreground="#002359"
+                   FontSize="25"
+                   Height="40" Width="436"
+                   Margin="0,40,0,20"/>
+                <StackPanel Height="150" Width="1010" Margin="0,0,0,45">
+                    <Border Background="White"
+                            CornerRadius="25"
+                            Height="150" Width="1010"
+                            Cursor="Hand">
+                        <RichTextBox x:Name="Nazvanie"
+                                     FontSize="20"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     Foreground="#002359" 
+                                     Cursor="Hand" 
+                                     BorderBrush="White" 
+                                     Background="White" 
+                                     Width="990" Height="130"/>
+                    </Border>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="65" Width="1010" Margin="0,0,0,45">
+                    <TextBlock Text="Является ли работа чисто теоретической?"
+                               Foreground="#002359"
+                               FontSize="25"
+                               Height="40" Width="497"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Margin="0,12,0,0"/>
+                    <Border Background="White"
+                            CornerRadius="15"
+                            Cursor="Hand" Width="475"
+                            Margin="38,0,0,0">
+                        <RichTextBox x:Name="Teor"
+                                     FontSize="20"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     Foreground="#002359" 
+                                     Cursor="Hand" 
+                                     BorderBrush="White" 
+                                     Background="White" 
+                                     Width="455" Height="45"/>
+                    </Border>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="65" Width="1010" Margin="0,0,0,50">
+                    <TextBlock Text=" Импакт фактор:"
+                               Foreground="#002359"
+                               FontSize="25"
+                               Height="40" Width="199"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Margin="0,12,0,0"/>
+                    <Border Background="White"
+                            CornerRadius="15"
+                            Cursor="Hand" Width="253"
+                            Margin="25,0,0,0">
+                        <RichTextBox x:Name="Impact" 
+                                     FontSize="20"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     Foreground="#002359" 
+                                     Cursor="Hand" 
+                                     BorderBrush="White" 
+                                     Background="White" 
+                                     Width="234" Height="55"/>
+                    </Border>
+
+                    <TextBlock Text="№ заключения:"
+                               Foreground="#002359"
+                               FontSize="25"
+                               Height="40" Width="192"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Margin="25,12,0,0"/>
+                    <Border Background="White"
+                            CornerRadius="15"
+                            Cursor="Hand"
+                            Margin="25,0,0,0" Width="290">
+                        <RichTextBox x:Name="Conclusion" 
+                                     FontSize="20"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     Foreground="#002359" 
+                                     Cursor="Hand" 
+                                     BorderBrush="White" 
+                                     Background="White" 
+                                     Width="272" Height="55"/>
+                    </Border>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="1010">
+                    <Border x:Name="Line1" Visibility="Hidden" Height="2" Width="1010" Background="#FF002359"/>
+                    <StackPanel Orientation="Horizontal" Height="65" Width="1010" Margin="0,10,0,0">
+                        <Button Style="{DynamicResource ButtonStyle1}" 
+                            Margin="25,0,0,0" 
+                                Visibility="Visible"
+                                Name="Btn1"
+                            Width="400"
+                            Background="#FFC5E9FF" 
+                            BorderBrush="#FFC5E9FF"
+                            Cursor="Hand"
+                            Content="Добавить"
+                            FontSize="25" 
+                            Foreground="#002359"
+                            FontWeight="Bold"
+                            Click="Add"/>
+
+                        <Button Style="{DynamicResource ButtonStyle1}" 
+                            Margin="150,0,0,0" 
+                            Width="400"
+                                Name="Btn2"
+                                Visibility="Visible"
+                            Background="#FFC5E9FF" 
+                            BorderBrush="#FFC5E9FF"
+                            Cursor="Hand"
+                            Content="Проверить"
+                            FontSize="25" 
+                            Foreground="#002359"
+                            FontWeight="Bold"
+                            Click="Vivod_Proverki"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Width="1010" Margin="0,-50,0,0" Orientation="Vertical" Name="Povt" Visibility="Hidden">
+                    <TextBlock Text="Проверка данных" FontSize="25" HorizontalAlignment="Center" Foreground="#FF002359"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,35,0,25">
+                        <TextBlock Text="Авторы, название, выходные данные:" FontSize="20" Foreground="#FF002359"/>
+                        <TextBlock Text="{Binding Nazv}" FontSize="20" Margin="50,0,0,0" Foreground="#FF002359" Width="615"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,15">
+                        <TextBlock Text="Российский или зарубежный журнал:" FontSize="20" Foreground="#FF002359"/>
+                        <TextBlock Text="{Binding Ross}" FontSize="20" Margin="50,0,0,0" Foreground="#FF002359" Width="615"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,15">
+                        <TextBlock Text="Является ли работа чисто теоретической:" FontSize="20" Foreground="#FF002359"/>
+                        <TextBlock Text="{Binding Teoret}" FontSize="20" Margin="50,0,0,0" Foreground="#FF002359" Width="615"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,15">
+                        <TextBlock Text="Число авторов:" FontSize="20" Foreground="#FF002359"/>
+                        <TextBlock Text="{Binding Auth}" FontSize="20" Margin="50,0,0,0" Foreground="#FF002359" Width="615"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,15">
+                        <TextBlock Text="Импакт фактор журнала:" FontSize="20" Foreground="#FF002359"/>
+                        <TextBlock Text="{Binding Impact2}" FontSize="20" Margin="50,0,0,0" Foreground="#FF002359" Width="615"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,15">
+                        <TextBlock Text="№ экспертного заключения:" FontSize="20" Foreground="#FF002359"/>
+                        <TextBlock Text="{Binding Zakl}" FontSize="20" Margin="50,0,0,0" Foreground="#FF002359" Width="615"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,25">
+                        <TextBlock Text="Балл:" FontSize="20" Foreground="#FF002359" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Ball}" FontSize="20" Margin="50,0,0,0" Foreground="#FF002359" Width="615" FontWeight="Bold"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="1010">
+                    <Border x:Name="Line2" Visibility="Hidden" Height="2" Width="1010" Background="#FF002359"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="65" Width="1010" Margin="0,30,0,0">
+                    <Button Style="{DynamicResource ButtonStyle1}" 
+                            Margin="25,0,0,0" 
+                                Visibility="Hidden"
+                                Name="Btn12"
+                            Width="400"
+                            Background="#FFC5E9FF" 
+                            BorderBrush="#FFC5E9FF"
+                            Cursor="Hand"
+                            Content="Добавить"
+                            FontSize="25" 
+                            Foreground="#002359"
+                            FontWeight="Bold"
+                            Click="Add"/>
+
+                    <Button Style="{DynamicResource ButtonStyle1}" 
+                            Margin="150,0,0,0" 
+                            Width="400"
+                                Name="Btn22"
+                                Visibility="Hidden"
+                            Background="#FFC5E9FF" 
+                            BorderBrush="#FFC5E9FF"
+                            Cursor="Hand"
+                            Content="Закрыть проверку"
+                            FontSize="25" 
+                            Foreground="#002359"
+                            FontWeight="Bold"
+                            Click="Close_Proverki"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
 
         <Border Background="#002359" 
                 Height="50" 
@@ -109,89 +291,12 @@
                    TextDecorations="Underline"
                    MouseLeftButtonDown="Nazad"/>
 
-        <TextBlock Text="Название, авторы, выходные данные"
-                   Foreground="#002359"
-                   FontSize="25"
-                   Height="40" Width="436"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Left"
-                   Margin="515,108,0,0"/>
 
-        <TextBlock Text="Является ли работа чисто теоретической?"
-                   Foreground="#002359"
-                   FontSize="25"
-                   Height="40" Width="497"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Left"
-                   Margin="195,398,0,0"/>
-        <Border Background="White"
-                CornerRadius="15"
-                Cursor="Hand"
-                Margin="697,376,131,350">
-            <RichTextBox x:Name="Teor"
-                         FontSize="20"
-                         VerticalAlignment="Center"
-                         HorizontalAlignment="Center"
-                         Foreground="#002359" 
-                         Cursor="Hand" 
-                         BorderBrush="White" 
-                         Background="White" 
-                         Width="513" Height="28"/>
-        </Border>
 
-        <TextBlock Text=" Импакт фактор:"
-                   Foreground="#002359"
-                   FontSize="25"
-                   Height="40" Width="199"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Left"
-                   Margin="195,496,0,0"/>
-        <Border Background="White"
-                CornerRadius="15"
-                Cursor="Hand"
-                Margin="402,484,724,252">
-            <RichTextBox x:Name="Impact" 
-                         FontSize="20"
-                         VerticalAlignment="Center"
-                         HorizontalAlignment="Center"
-                         Foreground="#002359" 
-                         Cursor="Hand" 
-                         BorderBrush="White" 
-                         Background="White" 
-                         Width="254" Height="28"/>
-        </Border>
 
-        <TextBlock Text="№ заключения:"
-                   Foreground="#002359"
-                   FontSize="25"
-                   Height="40" Width="192"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Left"
-                   Margin="715,496,0,0"/>
-        <Border Background="White"
-                CornerRadius="15"
-                Cursor="Hand"
-                Margin="928,484,131,252">
-            <RichTextBox x:Name="Conclusion" 
-                         FontSize="20"
-                         VerticalAlignment="Center"
-                         HorizontalAlignment="Center"
-                         Foreground="#002359" 
-                         Cursor="Hand" 
-                         BorderBrush="White" 
-                         Background="White" 
-                         Width="321" Height="30"/>
-        </Border>
 
-        <Button Style="{DynamicResource ButtonStyle1}" 
-                Margin="532,623,476,107" 
-                Background="#FFC5E9FF" 
-                BorderBrush="#FFC5E9FF"
-                Cursor="Hand"
-                Content="Добавить"
-                FontSize="25" 
-                Foreground="#002359"
-                FontWeight="Bold"
-                Click="Add"/>
+
+
+
     </Grid>
 </Page>

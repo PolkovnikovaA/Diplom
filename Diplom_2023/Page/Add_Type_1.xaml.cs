@@ -1,11 +1,15 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,15 +22,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Diplom_2023
 {
     /// <summary>
     /// Логика взаимодействия для Add_Type_1.xaml
     /// </summary>
-    public partial class Add_Type_1 : Page
+    public partial class Add_Type_1 : Page, INotifyPropertyChanged
     {
         public Frame frame1;
+        public event PropertyChangedEventHandler PropertyChanged;
+        public string nazv;
+        public string ross;
+        public string teoret;
+        public string auth;
+        public string impact2;
+        public string zakl;
+        public string ball;
         public Add_Type_1(Frame frame)
         {
             InitializeComponent();
@@ -193,12 +206,6 @@ namespace Diplom_2023
             // 3. Вывод
             number_of_authors = authors;
 
-            /*string b = Convert.ToString(words);
-            foreach (char c in b)
-            {
-                Console.WriteLine(c);
-            }*/
-
             string str;
 
             MySqlCommand command = new MySqlCommand();
@@ -253,8 +260,6 @@ namespace Diplom_2023
                                         {
                                             MessageBoxResult result2 = MessageBox.Show("Все хорошо");
                                         }
-                                        else
-                                            MessageBox.Show("Произошла ошибка");
                                         dataBase2.closeConnection();
 
 
@@ -289,8 +294,6 @@ namespace Diplom_2023
                                         if (command4.ExecuteNonQuery() == 1)
                                         {
                                         }
-                                        else
-                                            MessageBox.Show("Произошла ошибка");
                                         dataBase4.closeConnection();
                                         //str = "";
                                         break;
@@ -322,24 +325,6 @@ namespace Diplom_2023
             {
                 command.Connection.Close();
             }
-
-
-
-            // Поиск авторов по базе
-            /*string test = " Vladimir N. Polkovnikov";
-
-            DataBase dataBase = new DataBase();
-            DataTable dataTable = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL", dataBase.getConnection());
-            
-
-            foreach (string aut in words)
-            {
-                if (aut == test)
-                    MessageBox.Show("Нашел");
-            }*/
-
         }
 
         public void Addendum_Type1()
@@ -356,9 +341,6 @@ namespace Diplom_2023
 
             var textRange_Conclusion = new TextRange(Conclusion.Document.ContentStart, Conclusion.Document.ContentEnd);
             string Conclusion2 = textRange_Conclusion.Text;
-
-            // Поиск авторов по базе
-
 
             // Добавление в базу данных
             DataBase dataBase = new DataBase();
@@ -383,8 +365,6 @@ namespace Diplom_2023
                 else
                     frame1.Navigate(new Addendum(frame1));
             }    
-            else
-                MessageBox.Show("Произошла ошибка");
             dataBase.closeConnection();
 
             DataBase dataBase31 = new DataBase();
@@ -405,8 +385,6 @@ namespace Diplom_2023
             if (command22.ExecuteNonQuery() == 1)
             {
             }
-            else
-                MessageBox.Show("Произошла ошибка");
             dataBase22.closeConnection();
         }
 
@@ -421,6 +399,218 @@ namespace Diplom_2023
         private void Nazad(object sender, MouseButtonEventArgs e)
         {
             frame1.Navigate(new Addendum(frame1));
+        }
+
+        public string Nazv
+        {
+            get { return nazv; }
+            set
+            {
+                nazv = value;
+                OnPropertyChanged("Nazv");
+            }
+        }
+        public string Ross
+        {
+            get { return ross; }
+            set
+            {
+                ross = value;
+                OnPropertyChanged("Ross");
+            }
+        }
+        public string Teoret
+        {
+            get { return teoret; }
+            set
+            {
+                teoret = value;
+                OnPropertyChanged("Teoret");
+            }
+        }
+        public string Auth
+        {
+            get { return auth; }
+            set
+            {
+                auth = value;
+                OnPropertyChanged("Auth");
+            }
+        }
+        public string Impact2
+        {
+            get { return impact2; }
+            set
+            {
+                impact2 = value;
+                OnPropertyChanged("Impact2");
+            }
+        }
+        public string Zakl
+        {
+            get { return zakl; }
+            set
+            {
+                zakl = value;
+                OnPropertyChanged("Zakl");
+            }
+        }
+        public string Ball
+        {
+            get { return ball; }
+            set
+            {
+                ball = value;
+                OnPropertyChanged("Ball");
+            }
+        }
+
+        private void Vivod_Proverki(object sender, RoutedEventArgs e)
+        {
+            var textRange = new TextRange(Nazvanie.Document.ContentStart, Nazvanie.Document.ContentEnd);
+            string Nazvanie2 = textRange.Text;
+
+            var textRange2 = new TextRange(Teor.Document.ContentStart, Teor.Document.ContentEnd);
+            string Teor2 = textRange2.Text;
+
+            var textRange3 = new TextRange(Impact.Document.ContentStart, Impact.Document.ContentEnd);
+            string Impact3 = textRange3.Text;
+
+            var textRange4 = new TextRange(Conclusion.Document.ContentStart, Conclusion.Document.ContentEnd);
+            string Conclusion2 = textRange4.Text;
+            
+            // Парсинг 2 части названия
+            string nazvanie = Nazvanie2;
+            string nazvanie2 = Nazvanie2;
+
+            // 1. Посчитаем сколько символов в первой части
+            nazvanie = nazvanie.Substring(0, nazvanie.LastIndexOf('/') + (-1));
+            nazvanie2 = nazvanie.Substring(0, nazvanie.LastIndexOf('/') + 2);
+            int length = nazvanie2.Length;   // количество символов в первой части
+                                             // 2. Вычтим количество символов из названия
+            nazvanie = nazvanie.Remove(0, length);
+
+            // Подсчет авторов:
+            // 1. Разделяем слова
+            char[] words_authors = { ',' };
+            string[] words = nazvanie.Split(words_authors);
+            // 2. Считаем авторов
+            int authors = words.Length;
+            // 3. Вывод
+            number_of_authors = authors;
+
+            string nazvanie3 = Nazvanie2;
+            //1 часть текста
+            nazvanie3 = nazvanie3.Substring(0, nazvanie3.LastIndexOf('/') + (-1));
+            nazvanie3 = nazvanie3.Substring(0, nazvanie3.LastIndexOf('/') + (-1));
+            part_1 = nazvanie3;
+
+            // Определяем какой журнал: зарубежный или российский
+            string str;
+            str = nazvanie3;
+            str = str.ToLower();    // Перевод в нижний регистр
+            byte[] b = System.Text.Encoding.Default.GetBytes(str);
+            int angl_count = 0, russ_count = 0;
+            foreach (byte bt in b)  // Проверка
+            {
+                if ((bt >= 97) && (bt <= 122)) angl_count++;
+                if ((bt >= 192) && (bt <= 239)) russ_count++;
+            }
+            if (angl_count > russ_count)
+                russian_foreign = "з";
+            if (angl_count < russ_count)
+                russian_foreign = "р";
+
+            double points = 0;
+            double points1 = 0;
+            double points2 = 0;
+            double points3 = 0;
+
+            // Подсчет баллов за журнал
+            if (russian_foreign == null || Impact3 == null)  // Если одно поле из 2 является пустым, то баллы = 0 
+            {                                                                        // 1. Российский или зарубежный журнал
+                points = 0;                                                          // 2. Работа является теоретической
+            }
+            else
+            {
+                if (Convert.ToDouble(Impact3) < 0.2)    // Если импакт фактор журнала < 0.2, то баллы = 6
+                {
+                    points = 6;
+                }
+                else   // Если импакт фактор журнала > 0.2, то баллы = импакт
+                {
+                    points = Convert.ToDouble(Impact3);
+                }
+                if (russian_foreign == "р") // Если журнал является российским, то баллы = 45
+                {
+                    points1 = 45;
+                }
+                else   // Если журнал является зарубежным, то баллы = 30
+                {
+                    points1 = 30;
+                }
+                if (Teor2 == "нет\r\n") // Если работа не является чисто теоретической, то баллы = 1.5
+                {
+                    points2 = 1.5;
+                }
+                else   // Если работа является чисто теоритической, то баллы = 1
+                {
+                    points2 = 1;
+                }
+                if (Convert.ToDouble(number_of_authors) < 10) // Если количество авторов < 10, то баллы = количество авторов
+                {
+                    points3 = Convert.ToDouble(number_of_authors);
+                }
+                else   // Если количество авторов => 10, то баллы = 10
+                {
+                    points3 = 10;
+                }
+                double itog = (points * points1 * points2) / points3; // Формула баллов
+                double result = Math.Round(itog, 2);    // Сокращение цифр после запятой до 2-х знаков
+                point = result;
+            }
+
+            Nazvanie2 = Nazvanie2.Substring(0, Nazvanie2.LastIndexOf('\r'));
+            Teor2 = Teor2.Substring(0, Teor2.LastIndexOf('\r'));
+
+            Bor.Visibility = Visibility.Hidden;
+            Bor1.Visibility = Visibility.Visible;
+            Line1.Visibility = Visibility.Visible;
+            Povt.Visibility = Visibility.Visible;
+            Btn12.Visibility = Visibility.Visible;
+            Btn22.Visibility = Visibility.Visible;
+            Btn1.Visibility = Visibility.Hidden;
+            Btn2.Visibility = Visibility.Hidden;
+            Povt.Visibility = Visibility.Visible;
+            Line2.Visibility = Visibility.Visible;
+
+            Nazv = Nazvanie2;
+            Auth = Convert.ToString(number_of_authors);
+            Ross = russian_foreign;
+            Teoret = Teor2;
+            Impact2 = Impact3;
+            Zakl = Conclusion2;
+            Ball = Convert.ToString(point);
+        }
+
+        private void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+
+        private void Close_Proverki(object sender, RoutedEventArgs e)
+        {
+            Bor.Visibility = Visibility.Visible;
+            Bor1.Visibility = Visibility.Hidden;
+            Line1.Visibility = Visibility.Hidden;
+            Povt.Visibility = Visibility.Hidden;
+            Btn12.Visibility = Visibility.Hidden;
+            Btn22.Visibility = Visibility.Hidden;
+            Btn1.Visibility = Visibility.Visible;
+            Btn2.Visibility = Visibility.Visible;
+            Povt.Visibility = Visibility.Hidden;
+            Line2.Visibility = Visibility.Hidden;
         }
     }
 }

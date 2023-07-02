@@ -28,14 +28,18 @@ namespace Diplom_2023
     public partial class Main : Page
     {
         public Frame frame1;
+        int i = 7;
         public Main(Frame frame)
         {
             InitializeComponent();
             frame1 = frame;
+            
+            Public.Text = Convert.ToString(i);
 
             Visible_Menu();
+            Publ_Sek();
             Points();
-            Publik();
+            //Publik();
         }
 
         // Раскрываем меню на странице авторизации
@@ -49,9 +53,10 @@ namespace Diplom_2023
                     (window as MainWindow).ellipse_main.Visibility = Visibility.Visible;
                     (window as MainWindow).ellipse_publication.Visibility = Visibility.Visible;
                     (window as MainWindow).ellipse_rating.Visibility = Visibility.Visible;
-                    (window as MainWindow).ellipse_help.Visibility = Visibility.Visible;
+                    (window as MainWindow).ellipse_help.Visibility = Visibility.Hidden;
                     (window as MainWindow).ellipse_exit.Visibility = Visibility.Visible;
                     (window as MainWindow).Logo.Visibility = Visibility.Visible;
+                    (window as MainWindow).ellipse_reg.Visibility = Visibility.Visible;
                 }
             }
         }
@@ -108,6 +113,52 @@ namespace Diplom_2023
             int age = now.Year - user_id.Year;
 
             return age;
+        }
+
+        // Вывод публикаций для ученого секретаря
+        public void Publ_Sek()
+        {
+            StreamReader reader = new StreamReader(@"C:\Users\21nas\source\repos\Diplom_2023\Diplom_2023\Login_and_password.txt", System.Text.Encoding.Default);
+            string[] strok = File.ReadAllLines(@"C:\Users\21nas\source\repos\Diplom_2023\Diplom_2023\Login_and_password.txt", System.Text.Encoding.Default);
+
+            string pp = strok[0];
+
+            // 1 часть текста:
+            // 1. Посчитаем сколько символов в первой части
+            pp = pp.Substring(0, pp.LastIndexOf(' '));
+
+            reader.Close();
+
+            int count2 = Count();
+            string str;
+            string name = Convert.ToString(pp);
+
+            //string polz = Name.Text;
+            //int p = 3;
+
+            DataBase dataBase3 = new DataBase();
+            MySqlCommand command3 = new MySqlCommand("SELECT dolzhnost FROM users WHERE login = @login", dataBase3.getConnection());
+            command3.Parameters.Add("@login", MySqlDbType.VarChar).Value = name;
+            MySqlDataReader reader3;
+            command3.Connection.Open();
+            reader3 = command3.ExecuteReader();
+            //while(p>0)
+            //{
+                reader3.Read();
+                string dolzhnost2 = Convert.ToString(reader3["dolzhnost"]);
+                //reader3.Close();
+                if (dolzhnost2 == "Ученый секретарь")
+                {
+                    Point.Visibility = Visibility.Hidden;
+                    Ball.Visibility = Visibility.Hidden;
+                    Pabb2.Visibility = Visibility.Visible;
+                    Pub2.Visibility = Visibility.Visible;
+                    Pub.Visibility = Visibility.Hidden;
+                    Pabb.Visibility = Visibility.Hidden;
+                }
+                //p--;
+            //}
+            
         }
 
         // Вывод баллов

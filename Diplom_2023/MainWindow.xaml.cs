@@ -48,12 +48,18 @@ namespace Diplom_2023
 
         private void Menu_Help(object sender, MouseButtonEventArgs e)
         {
-            FrameName.Navigate(new Help(FrameName));
+            Help help = new Help();
+            help.Show();
         }
 
         private void Menu_Exit(object sender, MouseButtonEventArgs e)
         {
             FrameName.Navigate(new Authorization(FrameName));
+        }
+
+        private void Menu_Registration(object sender, MouseButtonEventArgs e)
+        {
+            FrameName.Navigate(new Registration(FrameName));
         }
     }
 }

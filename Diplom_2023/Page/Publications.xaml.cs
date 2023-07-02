@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -875,6 +876,11 @@ namespace Diplom_2023
             }
         }
 
+        private async void Publications_Click_Type1(object sender, MouseButtonEventArgs e)
+        {
+            frame1.Navigate(new Izm_Type_1(frame1));
+        }
+
         private void Addendum(object sender, RoutedEventArgs e)
         {
             frame1.Navigate(new Addendum(frame1));
@@ -883,6 +889,31 @@ namespace Diplom_2023
         // Вывод на печать
         private void Print(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void PPoisk(object sender, MouseButtonEventArgs e)
+        {
+            PPoisk1.Visibility = Visibility.Hidden;
+            PPoisk2.Visibility = Visibility.Visible;
+        }
+
+        private void PPoisk3(object sender, MouseButtonEventArgs e)
+        {
+            PPoisk1.Visibility = Visibility.Visible;
+            PPoisk2.Visibility = Visibility.Visible;
+        }
+
+        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(PPoisk2.Text == "Изм")
+            {
+                Xitr.Visibility= Visibility.Visible;
+            }
+            else
+            {
+                Xitr.Visibility= Visibility.Hidden;
+            }
 
         }
     }

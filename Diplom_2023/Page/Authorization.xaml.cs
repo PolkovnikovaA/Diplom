@@ -96,7 +96,7 @@ namespace Diplom_2023
                 case "Сотрудник":
                     frame1.Navigate(new Main(frame1));
                     break;
-                case "Главный":
+                case "Ученый секретарь":
                     frame1.Navigate(new Main(frame1));
                     break;
             }
@@ -161,6 +161,7 @@ namespace Diplom_2023
                     (window as MainWindow).ellipse_help.Visibility = Visibility.Hidden;
                     (window as MainWindow).ellipse_exit.Visibility = Visibility.Hidden;
                     (window as MainWindow).Logo.Visibility = Visibility.Hidden;
+                    (window as MainWindow).ellipse_reg.Visibility = Visibility.Hidden;
                 }
             }
         }

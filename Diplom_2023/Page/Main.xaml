@@ -48,8 +48,10 @@
     </Page.Resources>
 
     <Grid Height="800" Width="1400">
-        <Border Margin="126,90,921,536"
+        <Border Margin="800,90,145,536"
+                Name="Point"
                 CornerRadius="15"
+                Visibility="Visible"
                    Background="#FFC5E9FF">
             <TextBlock FontSize="25"
                        Name="points"
@@ -63,17 +65,43 @@
 
         <TextBlock FontSize="25" 
                    Text="Баллов"
+                   Name="Ball"
                    TextAlignment="Center"
                    FontFamily="Cambria" 
                    Foreground="#002359" 
                    Background="#FFC5E9FF" 
-                   Margin="247,192,1042,568" />
+                   Margin="972,194,317,566" />
 
-        <Border Margin="544,90,504,536"
+        <Border Margin="176,90,782,536"
                 CornerRadius="15"
-                   Background="#FFC5E9FF">
+                   Background="#FFC5E9FF"
+                Name="Pabb">
             <TextBlock FontSize="25"
                        Name="Public"
+                       TextAlignment="Center"
+                       FontFamily="Cambria" 
+                       Foreground="#002359" 
+                       Background="#FFC5E9FF" 
+                       Margin="118,59,118,65" 
+                       FontWeight="Bold"/>
+        </Border>
+
+        <TextBlock FontSize="25" 
+                   Text="Публикаций"
+                   Name="Pub"
+                   TextAlignment="Center"
+                   FontFamily="Cambria" 
+                   Foreground="#002359" 
+                   Background="#FFC5E9FF" 
+                   Margin="309,196,915,572" />
+
+        <Border Margin="172,90,876,536"
+                CornerRadius="15"
+                Name="Pabb2"
+                   Background="#FFC5E9FF"
+                Visibility="Hidden">
+            <TextBlock FontSize="25"
+                       Name="Public2"
                        TextAlignment="Center"
                        FontFamily="Cambria" 
                        Foreground="#002359" 
@@ -84,11 +112,13 @@
 
         <TextBlock FontSize="25" 
                    Text="Публикаций"
+                   Visibility="Hidden"
+                   Name="Pub2"
                    TextAlignment="Center"
                    FontFamily="Cambria" 
                    Foreground="#002359" 
                    Background="#FFC5E9FF" 
-                   Margin="632,196,592,572" />
+                   Margin="260,196,964,572" />
 
         <Border Background="#002359" 
                 Height="50" 
@@ -99,7 +129,7 @@
                        FontWeight="Bold" 
                        Margin="34,10,1106,10"/>
         </Border>
-        <TextBlock Text="Добро пожаловать "
+        <TextBlock 
                    Name="Name"
                        Foreground="#FFC5E9FF"
                        FontSize="20" 
@@ -109,9 +139,10 @@
         <Button Style="{DynamicResource ButtonStyle1}" 
                 Foreground="#002359"
                 Cursor="Hand"
+                Visibility="Visible"
                 Background="#FFC5E9FF" 
                 BorderBrush="{x:Null}"
-                Margin="963,90,86,536"
+                Margin="800,90,145,536"
                 Click="Addendum">
             <Image Source="/Image/Main/image7.jpg" Cursor="Hand" Height="61" Width="84" Margin="0,-40,0,0"/>
             <Button.ToolTip>
@@ -119,28 +150,29 @@
             </Button.ToolTip>
         </Button>
         <TextBlock FontSize="25" 
+                   Visibility="Visible"
                    Text="Добавить публикацию"
                    TextAlignment="Center"
                    FontFamily="Cambria" 
                    Foreground="#002359" 
                    Background="#FFC5E9FF" 
-                   Margin="1006,192,130,568" />
-        
-        <Border Background="White"  Margin="126,310,86,53" CornerRadius="15"/>
-        <Line X1="125" Y1="730" X2="1300" Y2="730" Margin="37,-28,132,28" Stroke="Gray"/>
-        <Line X1="125" Y1="730" X2="125" Y2="330" Margin="37,24,-32,98" Stroke="Gray"/>
-        <TextBlock Text="1" Foreground="#002359" FontSize="25" Margin="218,702,1166,62"/>
-        <TextBlock Text="2" Foreground="#002359" FontSize="25" Margin="322,702,1062,62"/>
-        <TextBlock Text="3" Foreground="#002359" FontSize="25" Margin="424,702,960,62"/>
-        <TextBlock Text="4" Foreground="#002359" FontSize="25" Margin="515,702,869,62"/>
-        <TextBlock Text="5" Foreground="#002359" FontSize="25" Margin="610,702,774,62"/>
-        <TextBlock Text="6" Foreground="#002359" FontSize="25" Margin="700,702,684,62"/>
-        <TextBlock Text="7" Foreground="#002359" FontSize="25" Margin="792,702,592,62"/>
-        <TextBlock Text="8" Foreground="#002359" FontSize="25" Margin="880,702,504,62"/>
-        <Border Background="#4479A5"  Margin="191,596,1144,99"/>
-        <Border Background="#4479A5"  Margin="856,687,480,98"/>
-        <Border Background="#4479A5"  Margin="768,617,568,98"/>
-        <Border Background="#4479A5"  Margin="676,686,660,98" RenderTransformOrigin="0.5,0.5">
+                   Margin="896,192,240,568" />
+
+
+
+        <Border Background="White"  Margin="176,310,145,53" CornerRadius="15"/>
+        <Line X1="125" Y1="730" X2="1300" Y2="730" Margin="114,-28,213,28" Stroke="Gray"/>
+        <Line X1="125" Y1="730" X2="125" Y2="330" Margin="114,90,-32,98" Stroke="Gray"/>
+        <TextBlock Text="1" Foreground="#002359" FontSize="25" Margin="302,702,1082,62"/>
+        <TextBlock Text="2" Foreground="#002359" FontSize="25" Margin="406,702,978,62"/>
+        <TextBlock Text="3" Foreground="#002359" FontSize="25" Margin="508,702,876,62"/>
+        <TextBlock Text="4" Foreground="#002359" FontSize="25" Margin="599,702,785,62"/>
+        <TextBlock Text="5" Foreground="#002359" FontSize="25" Margin="694,702,690,62"/>
+        <TextBlock Text="6" Foreground="#002359" FontSize="25" Margin="784,702,600,62"/>
+        <TextBlock Text="7" Foreground="#002359" FontSize="25" Margin="876,702,508,62"/>
+        <TextBlock Text="8" Foreground="#002359" FontSize="25" Margin="964,702,420,62"/>
+        <Border Background="#4479A5"  Margin="275,634,1060,99"/>
+        <Border Background="#4479A5"  Margin="940,703,396,97" RenderTransformOrigin="0.5,0.5">
             <Border.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
@@ -150,11 +182,73 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-        <Border Background="#4479A5"  Margin="586,668,750,98"/>
-        <Border Background="#4479A5"  Margin="491,634,844,98"/>
-        <Border Background="#4479A5"  Margin="400,687,936,98"/>
-        <Border Background="#4479A5"  Margin="298,648,1038,99"/>
+        <Border Background="#4479A5"  Margin="852,703,484,97" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <Border Background="#4479A5"  Margin="760,702,576,96" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <Border Background="#4479A5"  Margin="670,702,666,96"/>
+        <Border Background="#4479A5"  Margin="575,694,760,98" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <Border Background="#4479A5"  Margin="484,694,852,98" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <Border Background="#4479A5"  Margin="382,687,954,99"/>
 
-
+        <TextBlock Text="Публикаций за весь год"
+                       Foreground="#002359"
+                       FontSize="20" 
+                       FontWeight="Bold" 
+                       Margin="240,350,900,411"/>
+        <Border Background="#4479A5"  Margin="852,702,484,96" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <Border Background="#4479A5"  Margin="940,702,396,96" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
     </Grid>
 </Page>

@@ -59,6 +59,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Help.xaml.cs">
+      <DependentUpon>Help.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Izm_Type_1.xaml.cs">
+      <DependentUpon>Izm_Type_1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Page\Add_Type_8.xaml.cs">
       <DependentUpon>Add_Type_8.xaml</DependentUpon>
     </Compile>
@@ -86,9 +92,6 @@
     <Compile Include="Page\Addendum.xaml.cs">
       <DependentUpon>Addendum.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page\Help.xaml.cs">
-      <DependentUpon>Help.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Page\Messages.xaml.cs">
       <DependentUpon>Messages.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,18 @@
     <Compile Include="Page\Rating.xaml.cs">
       <DependentUpon>Rating.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Class\Type_1.cs" />
+    <Compile Include="Page\Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Help.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\Izm_Type_1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Page\Add_Type_8.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,10 +146,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page\Addendum.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Page\Help.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page\Rating.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\Registration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,6 +244,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Login_and_password.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Publication.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Menu\image7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Publications\image.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

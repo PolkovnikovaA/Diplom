@@ -66,5 +66,10 @@ namespace Diplom_2023
         {
             frame1.Navigate(new Add_Type_8(frame1));
         }
+
+        private void Nazad(object sender, MouseButtonEventArgs e)
+        {
+            frame1.Navigate(new Publications(frame1));
+        }
     }
 }

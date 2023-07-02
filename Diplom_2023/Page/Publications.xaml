@@ -89,9 +89,10 @@
                        Padding="25,4,0,0"
                        FontSize="20" Width="651"/>
                         <ListView x:Name="LViewType2" HorizontalAlignment="Stretch"  
-                  Margin="10,10,10,10">
-                            <ListView.View>
-                                <GridView>
+                  Margin="10,10,10,10" PreviewMouseLeftButtonUp="Publications_Click_Type1" Cursor="Hand">
+                  
+                            <ListView.View >
+                                <GridView >
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=authors}" 
                       Header="Авторы, название, выходные данные" Width="300"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding Path=ross_zarub}" 
@@ -397,8 +398,8 @@
 
 
         <Border Background="#002359" Height="50" Margin="55,-1,0,751">
-            <Button Cursor="Hand" Style="{DynamicResource ButtonStyle1}" Margin="54,11,1255,10" Click="Addendum" BorderBrush="#FFC5E9FF" Background="#FFC5E9FF">
-                <Image Source="/Image/Main/image7.jpg"/>
+            <Button Visibility="Visible" Cursor="Hand" Style="{DynamicResource ButtonStyle1}" Margin="418,4,877,4" Click="Addendum" BorderBrush="#002359" Background="#002359">
+                <Image Source="/Image/Publications/image.jpg"/>
                 <Button.ToolTip>
                     <ToolTip>
                         Добавить
@@ -406,5 +407,9 @@
                 </Button.ToolTip>
             </Button>
         </Border>
+
+        <TextBox Name="PPoisk2" TextChanged="Search_TextChanged" MouseDoubleClick="PPoisk3" Padding="10,3,0,0" Foreground="#002359" FontSize="18" Margin="102,8,947,758" Visibility="Visible" MouseLeftButtonDown="PPoisk3"/>
+        <TextBlock Name="PPoisk1" MouseLeftButtonDown="PPoisk" Text="Поиск" Padding="10,3,0,0" Foreground="Gray" FontSize="18" Margin="102,8,975,758" Visibility="Visible"/>
+        <Border Name="Xitr" Visibility="Hidden" Background="White" Margin="120,228,65,541"/>
     </Grid>
 </Page>

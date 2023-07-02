@@ -175,6 +175,15 @@
             </StackPanel>
         </ScrollViewer>
         <Border Background="#002359" Height="50" Margin="55,0,0,750"/>
-
+        <TextBlock Text="Назад" 
+                   Height="50" 
+                   Cursor="Hand"
+                   Margin="1233,0,14,0" 
+                   Foreground="White"
+                   Padding="25,4,0,0" 
+                   VerticalAlignment="Top"
+                   FontSize="25" 
+                   TextDecorations="Underline"
+                   MouseLeftButtonDown="Nazad"/>
     </Grid>
 </Page>
